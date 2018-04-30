@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - mvn package -Dsource.skip -Dmaven.javadoc.skip=true
+      - mvn -B -fae -Pnolog,test,es5-multimodule-test test
+cache:
+  paths:
+    - '/root/.m2/**/*'
